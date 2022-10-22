@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+/* font-family: 'Karla', sans-serif; */
+
+
+/* ******************** */
+/*  VARIABLES  */
+/* ******************** */
+
+:root {
+--Cyan: hsl(179, 62%, 43%);
+--Bright-Yellow: hsl(71, 73%, 54%);
+--Light-Gray: hsl(204, 43%, 93%);
+--Grayish-Blue: hsl(218, 22%, 67%);
+}
+
+
+/* ******************** */
+/*  RESET  */
+/* ******************** */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+ul,
+ol { 
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+/* ******************** */
+/*  GLOBAL  */
+/* ******************** */
+
+body {
+    font-family: 'Karla', sans-serif;
+    background-color: var(--Light-Gray);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* ******************** */
+/*  LAYOUT  */
+/* ******************** */
+
+.container {
+    max-width: 35rem;
+    margin: 4rem 2rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    box-shadow: 0 8px 20px 5px hsl(205, 27%, 82%);
+}
+
+.container > * {
+    padding: 1.5rem;
+}
+
+
+/* ******************** */
+/*  HEADING-SECTION  */
+/* ******************** */
+
+.heading-wrapper {
+    background-color: white;
+    transition: 5s ease;
+}
+
+.title {
+    font-size: 1.2rem;
+    color: var(--Cyan);
+}
+
+.sub-title {
+    color: var(--Bright-Yellow);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.description {
+    font-size: 0.8rem;
+    line-height: 1.8;
+    color: var(--Grayish-Blue);
+    margin-top: 1rem;
+}
+
+
+/* ******************** */
+/*  SUBSCRIPTON-SECTION  */
+/* ******************** */
+
+.subscription-wrapper {
+    background-color: var(--Cyan);
+    display: flex;
+    flex-direction: column;
+    transition: 5s ease;
+}
+
+
+.subscription-plan {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.price-box {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.price {
+    margin-right: 0.5rem;
+    font-weight: 700;
+    font-size: 1.7rem;
+}
+
+.duration {
+    font-size: 0.8rem;
+    color: var(--Light-Gray);
+}
+
+.subscription-extra-detail {
+    font-size: 0.8rem;
+}
+
+button {
+    border: none;
+    display: inline-block;
+    padding: 0.7rem 2rem;
+    background-color: var(--Bright-Yellow);
+    border-radius: 0.3rem;
+    color: white;
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: 0 5px 15px 1px hsl(179, 58%, 38%);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: hsla(71, 55%, 38%, 0.5);
+    z-index: -1;
+
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 250ms ease-in;
+}
+
+button:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+
+/* ******************** */
+/*  WHY-US-SECTION  */
+/* ******************** */
+
+.why-us-wrapper {
+    background-color: hsla(179, 62%, 43%, 0.7);
+    transition: 5s ease;
+}
+
+.why-us-heading {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+}
+
+.why-us-wrapper p {
+    font-size: 0.75rem;
+    color: var(--Light-Gray);
+}
+
+
+
+/* ******************** */
+/*  MEDIA-QUERY  */
+/* ******************** */
+
+@media screen and (min-width: 28rem) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .container > * {
+        padding: 2rem;
+    }
+
+    .heading-wrapper {
+        grid-column: 1 / 3;
+    }
+
+    .title {
+        font-size: 1.3rem;
+    }
+
+    .sub-title {
+        font-size: 0.95rem;
+    } 
+
+    .description {
+        font-size: 0.85rem;
+        margin-top: 0.4rem;
+    }
+
+    .subscription-wrapper {
+        grid-column: 1 / 2;
+    }
+
+    .why-us-wrapper {
+        grid-column: 2 / 3;
+    }
+}
+
